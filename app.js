@@ -2,7 +2,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose')
 
 var indexRouter = require('./src/routes/index');
 var reviewsRouter = require('./src/routes/reviews');
@@ -16,11 +15,9 @@ var app = express();
 
 //Middleware
 app.use(dotenv.config);
-// app.use(db.connectToDB)
+app.use(db.connectToDB)
 
-mongoose.connect(process.env.DB_URL)
-    .then((result) => app.listen(5214))
-    .catch((err) => console.log(Error(err)))
+
 
 app.use(logger('dev'));
 app.use(express.json());
