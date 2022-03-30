@@ -2,18 +2,26 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// var mongoose = require('mongoose')
 
 var indexRouter = require('./routes/index');
 var reviewsRouter = require('./routes/reviews');
 var restaurantsRouter = require('./routes/reviews');
 var dishesRouter = require('./routes/reviews');
 
-var readEnv = require('./middleware/dotenv');
+var dotenv  = require('./middleware/dotenv');
+var db = require('./middleware/database')
 
 var app = express();
 
 //Middleware
-app.use(readEnv.readEnvFile);
+app.use(dotenv.config);
+// app.use(db.connectToDB)
+
+mongoose.connect(process.env.DB_URL)
+    .then((result) => app.listen(5214))
+    .catch((err) => console.log(Error(err)))
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
