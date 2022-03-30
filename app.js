@@ -5,8 +5,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./src/routes/index');
 var reviewsRouter = require('./src/routes/reviews');
-var restaurantsRouter = require('./src/routes/reviews');
-var dishesRouter = require('./src/routes/reviews');
+var restaurantsRouter = require('./src/routes/restaurants');
+var dishesRouter = require('./src/routes/dishes');
 
 var dotenv  = require('./src/middleware/dotenv');
 var db = require('./src/middleware/database')
