@@ -4,13 +4,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
 
-var indexRouter = require('./routes/index');
-var reviewsRouter = require('./routes/reviews');
-var restaurantsRouter = require('./routes/reviews');
-var dishesRouter = require('./routes/reviews');
+var indexRouter = require('./src/routes/index');
+var reviewsRouter = require('./src/routes/reviews');
+var restaurantsRouter = require('./src/routes/reviews');
+var dishesRouter = require('./src/routes/reviews');
 
-var dotenv  = require('./middleware/dotenv');
-var db = require('./middleware/database')
+var dotenv  = require('./src/middleware/dotenv');
+var db = require('./src/middleware/database')
 
 var app = express();
 
