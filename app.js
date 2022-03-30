@@ -8,8 +8,12 @@ var reviewsRouter = require('./routes/reviews');
 var restaurantsRouter = require('./routes/reviews');
 var dishesRouter = require('./routes/reviews');
 
+var readEnv = require('./middleware/dotenv');
+
 var app = express();
 
+//Middleware
+app.use(readEnv.readEnvFile);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
