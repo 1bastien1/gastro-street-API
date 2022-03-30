@@ -1,12 +1,11 @@
 var dotenv = require('dotenv');
-dotenv.config({path: '../.env-credential'});
+dotenv.config({path: '.env-credential'});
 
-function readEnvFile(req, res, next) {
-    //console.log('parse env file: ', dotenv.parse());
-    console.log('parse env file: ');
+function config(req, res, next) {
+    dotenv.config({path: '.env-credential'});
     next();
 }
 
 module.exports ={
-    readEnvFile: readEnvFile
+    config
 }
