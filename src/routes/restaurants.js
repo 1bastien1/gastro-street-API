@@ -13,17 +13,18 @@ router.get('/:id', RestaurantController.getOne, () => {
 });
 
 /* POST restaurant listing. */
-router.get('/', RestaurantController.createOne, () => {
+router.post('/', RestaurantController.createOne, () => {
   res.send(res);
 });
 
 /* UPDATE restaurant listing. */
-router.get('/', RestaurantController.updateOne, () => {
+//TODO post = update?
+router.post('/:id', RestaurantController.updateOne, () => {
   res.send(res);
 });
 
 /* DELETE restaurant listing. */
-router.get('/', RestaurantController.deleteOne, () => {
+router.delete('/:id', RestaurantController.deleteOne, () => {
   res.send(res);
 });
 

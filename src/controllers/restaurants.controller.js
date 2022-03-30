@@ -12,7 +12,7 @@ const getAll = ((req, res) => {
 })
 
 const getOne = ((req, res) => {
-    RestaurantModel.findOne({ _id: req.params.productID })
+    RestaurantModel.findOne({ _id: req.params.id })
         .then(result => res.status(200).json({ result }))
         .catch(() => res.status(404).json({msg: 'Product not found'}))
 })
@@ -24,13 +24,13 @@ const createOne = ((req, res) => {
 })
 
 const updateOne = ((req, res) => {
-    RestaurantModel.findOneAndUpdate({ _id: req.params.productID }, req.body, { new: true, runValidators: true })
+    RestaurantModel.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
         .then(result => res.status(200).json({ result }))
         .catch((error) => res.status(404).json({msg: 'Product not found' }))
 })
 
 const deleteOne = ((req, res) => {
-    RestaurantModel.findOneAndDelete({ _id: req.params.productID })
+    RestaurantModel.findOneAndDelete({ _id: req.params.id })
         .then(result => res.status(200).json({ result }))
         .catch((error) => res.status(404).json({msg: 'Product not found' }))
 })
