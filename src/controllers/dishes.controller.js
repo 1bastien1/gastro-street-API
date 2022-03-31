@@ -1,4 +1,4 @@
-const DisheModel = require('../models/dishes.model.ts')
+const DisheModel = require('../models/dishes.model.ts ')
 
 /**
  * retreive all restaurants
