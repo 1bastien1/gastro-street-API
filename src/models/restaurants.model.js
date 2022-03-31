@@ -1,15 +1,14 @@
 const mongoose = require('mongoose')
 
 const RestaurantsSchema = new mongoose.Schema({
-    id: String,
     name: String,
     addr: String,
     cp: String,
     city: String,
-    pictures: any,
+    //pictures: any,
 
 })
 
-const Restaurants = mongoose.model('Restaurants', RestaurantsSchema)
+const Restaurants = mongoose.model('restaurants', RestaurantsSchema)
 
 module.exports = Restaurants
