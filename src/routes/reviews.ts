@@ -1,6 +1,6 @@
 import Express from 'express';
 import {ReviewsController} from '../controllers/';
-var router = Express.Router();
+const router = Express.Router();
 
 
 /* GET all restaurant listing. */
@@ -30,5 +30,4 @@ router.delete('/:id', ReviewsController.deleteOne, (req, res) => {
 });
 
 
-
-module.exports = router;
+export default router;
