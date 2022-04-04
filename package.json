@@ -2,8 +2,11 @@
   "name": "tempgastrostreet",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "nodemon node ./src/bin/www"
+    "start": "node ./src/bin/www",
+    "build": "npx tsc",
+    "dev": "npx tsc --watch & nodemon -q dist/index.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
