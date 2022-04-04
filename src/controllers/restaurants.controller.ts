@@ -1,44 +1,36 @@
-const RestaurantModel = require('../models/restaurants.model')
+import {RestaurantsModel} from '../models'
 
 /**
  * retreive all restaurants
  * @param {*} req 
  * @param {*} res 
  */
-const getAll = ((req, res) => {
-    RestaurantModel.find({})
+export const getAll = ((req: any, res: any) => {
+    RestaurantsModel.find({})
         .then(result => res.status(200).json({ result }))
         .catch(error => res.status(500).json({msg: error}))
 })
 
-const getOne = ((req, res) => {
-    RestaurantModel.findOne({ _id: req.params.id })
+export const getOne = ((req: any, res: any) => {
+    RestaurantsModel.findOne({ _id: req.params.id })
         .then(result => res.status(200).json({ result }))
         .catch(() => res.status(404).json({msg: 'Product not found'}))
 })
 
-const createOne = ((req, res) => {
-    RestaurantModel.create(req.body)
+export const createOne = ((req: any, res: any) => {
+    RestaurantsModel.create(req.body)
         .then(result => res.status(200).json({ result }))
         .catch((error) => res.status(500).json({msg:  error }))
 })
 
-const updateOne = ((req, res) => {
-    RestaurantModel.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
+export const updateOne = ((req: any, res: any) => {
+    RestaurantsModel.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
         .then(result => res.status(200).json({ result }))
         .catch((error) => res.status(404).json({msg: 'Product not found' }))
 })
 
-const deleteOne = ((req, res) => {
-    RestaurantModel.findOneAndDelete({ _id: req.params.id })
+export const deleteOne = ((req: any, res: any) => {
+    RestaurantsModel.findOneAndDelete({ _id: req.params.id })
         .then(result => res.status(200).json({ result }))
         .catch((error) => res.status(404).json({msg: 'Product not found' }))
 })
-
-module.exports = {
-    getAll,
-    getOne,
-    createOne,
-    updateOne,
-    deleteOne
-}
