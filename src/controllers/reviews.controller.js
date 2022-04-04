@@ -1,4 +1,5 @@
 const ReviewsModel = require('../models/reviews.model')
+const DisheModel = require('../models/dishes.model')
 
 /**
  * retreive all restaurants
@@ -18,6 +19,12 @@ const getOne = ((req, res) => {
 })
 
 const createOne = ((req, res) => {
+    console.log('pass review create one controller')
+    const hasDishe = DisheModel.hasOne(req.body.idDishe);
+    if(!hasDishe){
+        res.status(400).json({msg:  "not able to add review: dishe not found" })
+    }
+
     ReviewsModel.create(req.body)
         .then(result => res.status(200).json({ result }))
         .catch((error) => res.status(500).json({msg:  error }))
