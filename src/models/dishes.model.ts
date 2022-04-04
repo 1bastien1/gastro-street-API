@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import Mongoose from 'mongoose'
 
-const DishesSchema = new mongoose.Schema({
+const DishesSchema = new Mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -16,6 +16,4 @@ const DishesSchema = new mongoose.Schema({
 
 })
 
-const Dishes = mongoose.model('dishes', DishesSchema)
-
-module.exports = Dishes
+export const DishesModel = Mongoose.model('dishes', DishesSchema)
