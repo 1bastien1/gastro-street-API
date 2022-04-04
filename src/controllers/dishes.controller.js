@@ -35,10 +35,18 @@ const deleteOne = ((req, res) => {
         .catch((error) => res.status(404).json({msg: 'Dishe not found' }))
 })
 
+const hasOne = ((id) => {
+    console.log('pass through')
+        DisheModel.findOne({ _id: id })
+            .then(() => true)
+            .catch(() => false)
+})
+
 module.exports = {
     getAll,
     getOne,
     createOne,
     updateOne,
-    deleteOne
+    deleteOne,
+    hasOne,
 }
