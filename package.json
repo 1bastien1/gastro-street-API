@@ -2,11 +2,10 @@
   "name": "tempgastrostreet",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
   "scripts": {
-    "start": "node ./src/bin/www",
+    "start": "nodemon node ./src/bin/www",
     "build": "npx tsc",
-    "dev": "npx tsc --watch & nodemon -q dist/index.js"
+    "dev": "npx tsc --watch & nodemon dist/src/bin/www.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -26,6 +25,7 @@
     "@typescript-eslint/parser": "^5.17.0",
     "eslint": "^8.12.0",
     "prettier": "2.6.1",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   }
 }
