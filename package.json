@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon node ./dist/app.js",
+    "startBis": "nodemon node ./app.js",
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
