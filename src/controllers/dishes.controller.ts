@@ -2,8 +2,8 @@ import {DishesModel} from '../models'
 
 /**
  * retreive all restaurants
- * @param {*} req 
- * @param {*} res 
+ * @param {*} req
+ * @param {*} res
  */
 export const getAll = ((req: any, res: any) => {
     DishesModel.find({})
