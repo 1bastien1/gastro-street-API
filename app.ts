@@ -16,12 +16,11 @@ import http from 'http'
 import indexRouter from './src/routes/index';
 import { AddressInfo } from 'net';
 
-// TODO
-// const reviewsRouter = require('./src/routes/reviews');
-// const restaurantsRouter = require('./src/routes/restaurants');
-// const dishesRouter = require('./src/routes/dishes');
-// const dotenv  = require('./src/middleware/dotenv');
-// const db = require('./src/middleware/database')
+import reviewsRouter from './src/routes/reviews';
+import restaurantsRouter from './src/routes/restaurants';
+import dishesRouter from './src/routes/dishes';
+import {config}  from './src/middleware/dotenv';
+import {connectToDB} from'./src/middleware/database'
 
 const app = express();
 
@@ -102,8 +101,8 @@ const app = express();
 
 
 // Middleware
-// app.use(dotenv.config);
-// app.use(db.connectToDB)
+app.use(config);
+app.use(connectToDB)
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -112,9 +111,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-// app.use('/reviews', reviewsRouter);
-// app.use('/restaurants', restaurantsRouter);
-// app.use('/dishes', dishesRouter);
+app.use('/reviews', reviewsRouter);
+app.use('/restaurants', restaurantsRouter);
+app.use('/dishes', dishesRouter);
 
 
 module.exports = app;
