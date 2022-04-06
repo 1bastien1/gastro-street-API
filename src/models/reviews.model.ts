@@ -14,7 +14,7 @@ const ReviewsSchema = new Mongoose.Schema({
     noteTaste: { type: Number, required: true, min: 0, max: 10 },
     noteQP: { type: Number, required: true, min: 0, max: 10 },
     author: { type: String, required: false },
-    //pictures: any,
+    // pictures: any,
 
 })
 

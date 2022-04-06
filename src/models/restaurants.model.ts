@@ -5,7 +5,7 @@ const RestaurantsSchema = new Mongoose.Schema({
     addr: String,
     cp: String,
     city: String,
-    //pictures: any,
+    // pictures: any,
 
 })
 

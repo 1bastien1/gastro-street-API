@@ -12,7 +12,7 @@ const DishesSchema = new Mongoose.Schema({
     currency: {type: String, required: true, enum: ['euro', 'dollar'] },
     allergens: [String],
     ingredients: [String],
-    //pictures: any,
+    // pictures: any,
 
 })
 
