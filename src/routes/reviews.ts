@@ -1,6 +1,6 @@
 import Express from 'express';
 import {ReviewsController} from '../controllers/';
-var router = Express.Router();
+const router = Express.Router();
 
 
 /* GET all restaurant listing. */
@@ -19,7 +19,7 @@ router.post('/', ReviewsController.createOne, (req, res) => {
 });
 
 /* UPDATE restaurant listing. */
-//TODO post = update?
+// TODO post = update?
 router.post('/:id', ReviewsController.updateOne, (req, res) => {
   res.send(res);
 });
@@ -31,4 +31,4 @@ router.delete('/:id', ReviewsController.deleteOne, (req, res) => {
 
 
 
-module.exports = router;
+export default router;

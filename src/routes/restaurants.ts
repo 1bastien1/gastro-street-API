@@ -1,6 +1,6 @@
 import Express from 'express';
 import {RestaurantsController} from '../controllers/';
-var router = Express.Router();
+const router = Express.Router();
 
 /* GET all restaurant listing. */
 router.get('/', RestaurantsController.getAll, (req, res) => {
@@ -18,7 +18,6 @@ router.post('/', RestaurantsController.createOne, (req, res) => {
 });
 
 /* UPDATE restaurant listing. */
-//TODO post = update?
 router.post('/:id', RestaurantsController.updateOne, (req, res) => {
   res.send(res);
 });
@@ -30,4 +29,4 @@ router.delete('/:id', RestaurantsController.deleteOne, (req, res) => {
 
 
 
-module.exports = router;
+export default router;
