@@ -1,12 +1,12 @@
-const mongoose = require('mongoose')
+import Mongoose from 'mongoose'
 
-const ReviewsSchema = new mongoose.Schema({
+const ReviewsSchema = new Mongoose.Schema({
     comments: {
         type: String,
         required: true,
     },
     idDishe: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Mongoose.Schema.Types.ObjectId,
         required: true,
     },
     date: {type: Date, default: new Date()},
@@ -14,10 +14,8 @@ const ReviewsSchema = new mongoose.Schema({
     noteTaste: { type: Number, required: true, min: 0, max: 10 },
     noteQP: { type: Number, required: true, min: 0, max: 10 },
     author: { type: String, required: false },
-    //pictures: any,
+    // pictures: any,
 
 })
 
-const Rewiews = mongoose.model('reviews', ReviewsSchema)
-
-module.exports = Rewiews
+export const ReviewsModel = Mongoose.model('reviews', ReviewsSchema)
