@@ -77,7 +77,7 @@ const app = express();
    const bind = typeof addr === 'string'
      ? 'pipe ' + addr
      : 'port ' + addr.port;
-   debug('Listening on ' + '3000');
+   debug('Listening on ' + bind);
  }
 
 
