@@ -14,6 +14,7 @@ debug('gastrostreet:server');
 import http from 'http'
 // const indexRouter = require('./src/routes/index');
 import indexRouter from './src/routes/index';
+import { AddressInfo } from 'net';
 
 // TODO
 // const reviewsRouter = require('./src/routes/reviews');
@@ -72,13 +73,11 @@ const app = express();
   * Event listener for HTTP server "listening" event.
   */
  function onListening() {
-  //  const addr = server.address();
-  //  const bind = typeof addr === 'string'
-  //    ? 'pipe ' + addr
-  //    : 'port ' + addr.port;
+   const addr = server.address() as AddressInfo;
+   const bind = typeof addr === 'string'
+     ? 'pipe ' + addr
+     : 'port ' + addr.port;
    debug('Listening on ' + '3000');
-   // tslint:disable-next-line: no-console
-   console.log('on listenning')
  }
 
 
@@ -97,8 +96,6 @@ const app = express();
  /**
   * Listen on provided port, on all network interfaces.
   */
- // tslint:disable-next-line: no-console
- console.log('before listening')
  server.listen(port);
  server.on('error', onError);
  server.on('listening', onListening);
