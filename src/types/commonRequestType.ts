@@ -5,7 +5,7 @@ export declare namespace Express {
             id: number,
         };
     }
-    interface RequestPost {
-        body?: any;
+    interface RequestPost<T> extends RequestGet {
+        body: T;
     }
 }
