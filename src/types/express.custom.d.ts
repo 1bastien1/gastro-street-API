@@ -3,7 +3,7 @@ declare global {
         interface Response {
             result: any;
             status: (httpCode: number) => Response;
-            json: (response: any) => Response;
+            json: (json: any) => Response;
         }
 
         interface Request {
