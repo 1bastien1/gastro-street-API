@@ -39,6 +39,6 @@ export const deleteOne = ((req: Express.Request, res: Express.Response) => {
 })
 
 export const hasOne = async (req: Express.Request, res: Express.Response): Promise<any> => {
-    const dishe = await  DishesModel.exists({ _id: req.body.idDishe })
+    const dishe = await DishesModel.exists({ _id: req.body.idDishe })
     return dishe;
 }
