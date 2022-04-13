@@ -1,6 +1,7 @@
 import {ReviewsModel} from '../models'
 import { commonTypeRequest, commonTypeResponse } from '../types'
 import { Review } from '../types/types'
+import { hasOne } from './dishes.controller'
 
 /**
  * retreive all restaurants
@@ -19,10 +20,16 @@ export const getOne = ((req: Express.Request, res: Express.Response) => {
         .catch(() => res.status(404).json({msg: 'Review not found'}))
 })
 
-export const createOne = ((req: Express.Request, res: Express.Response) => {
-    ReviewsModel.create(req.body)
+export const createOne = (async (req: Express.Request, res: Express.Response) => {
+    const dishe = await hasOne(req, res);
+    if(dishe){
+        ReviewsModel.create(req.body)
         .then(result => res.status(200).json({ result }))
         .catch((error) => res.status(500).json({msg:  error }))
+    }
+    else{
+        res.status(400).json({msg:  'Dishe not found' })
+    }
 })
 
 export const updateOne = ((req: Express.Request, res: Express.Response) => {
