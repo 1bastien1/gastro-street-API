@@ -1,4 +1,5 @@
 import { NextFunction } from 'express'
+import mongoose from 'mongoose'
 import {DishesModel} from '../models'
 import { commonTypeResponse, commonTypeRequest } from '../types'
 import { Dishe } from '../types/types'
@@ -39,6 +40,9 @@ export const deleteOne = ((req: Express.Request, res: Express.Response) => {
 })
 
 export const hasOne = async (req: Express.Request, res: Express.Response): Promise<any> => {
+    if(!mongoose.isValidObjectId(req.body.idDishe)) {
+        return null;
+    }
     const dishe = await DishesModel.exists({ _id: req.body.idDishe })
     return dishe;
 }
