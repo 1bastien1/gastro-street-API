@@ -1,6 +1,10 @@
 import Mongoose from 'mongoose'
 
 const DishesSchema = new Mongoose.Schema({
+    idRestaurant: {
+        type: Mongoose.Schema.Types.ObjectId,
+        required: true,
+    },
     name: {
         type: String,
         required: true,
