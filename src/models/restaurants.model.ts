@@ -1,10 +1,11 @@
 import Mongoose from 'mongoose'
 
 const RestaurantsSchema = new Mongoose.Schema({
-    name: String,
-    addr: String,
-    cp: String,
-    city: String,
+    
+    name: {type: String, required: true},
+    addr: {type: String, required: true},
+    cp: {type: String, required: true},
+    city: {type: String, required: true},
     // pictures: any,
 
 })

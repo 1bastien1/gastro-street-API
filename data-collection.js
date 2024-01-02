@@ -15,6 +15,7 @@ const restaurant = {
   }
 
   const dishe = {
+    "idRestaurant":"XXXX",
     "name":"burger",
     "price":8.50,
     "currency": "euro",
